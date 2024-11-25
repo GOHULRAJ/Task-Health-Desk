@@ -1,65 +1,67 @@
-import { SafeAreaView, StyleSheet, Text, View ,StatusBar,Image} from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View, StatusBar, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 export default function CreateAppointment() {
-  return (
-    <SafeAreaView style={styles.container}>
-     <StatusBar style="auto" />
-      <View style={styles.listBox}> 
-            <Image 
-                style={styles.img}
-                source={require('../assets/createAppointment/Group.png')}
-            />
-            <Text style={styles.textCon}>Online Consultation</Text>
-      </View>
-      <View style={styles.listBox}>
-      <Image 
-                style={styles.img}
-                source={require('../assets/createAppointment/Group1.png')}
-            />
-            <Text style={styles.textCon}>Online Consultation</Text>
-            <Text style={styles.textCon}>Online Consultation</Text>
+    const navigation = useNavigation();
+    return (
+        <SafeAreaView style={styles.container}>
+            <StatusBar style="auto" />
+            <TouchableOpacity style={styles.listBox} onPress={() => navigation.navigate('OnlineConsultation')}>
+                <View style={styles.card}>
+                    <Image
+                        source={require("../assets/createAppointment/Group.png")} // Replace with your image path
+                        style={styles.image}
+                    />
+                    <Text style={styles.text}>Online Consultation</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.listBox} onPress={() => navigation.navigate('OnlineConsultation')}>
+                <View style={styles.card}>
+                    <Image
+                        source={require("../assets/createAppointment/Group.png")} // Replace with your image path
+                        style={styles.image}
+                    />
+                    <Text style={styles.text}>Offline Consultation</Text>
+                </View>
+            </TouchableOpacity>
 
-      </View>
-    </SafeAreaView>
-  )
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        width:'100%',
-        backgroundColor:'white',
-        alignItems:'center',
-        paddingTop:'10%'
-        
+    container: {
+        flex: 1,
+        width: '100%',
+        backgroundColor: 'white',
+        paddingTop: '25%'
     },
-    listBox:{
-        width:'90%',
-        height:100,
-        marginTop:'8%',
-        borderColor:"#555",
-        borderWidth:1,
-        shadowColor:'#555',
-        borderRadius:5,
-        backgroundColor:'white',
-        position:'relative',
-        justifyContent:'center'
-    },
-    img:{
-        width:75,
-        height:50,
-        position:'absolute',
-        top:25,
-        left:20
-    },
-    textCon:{
-        position:'absolute',
-        fontSize:24,
-        right:23,
-        top:35,
-        color:'#1F2587',
-        fontWeight:400
-    }
 
+    card: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent:'space-between',
+        backgroundColor: "#FFFFFF",
+        borderRadius: 10,
+        padding: 10,
+        paddingHorizontal:20,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 3,
+        margin: 10,
+      },
+      image: {
+        width: 75,
+        height: 75,
+        resizeMode: "contain",
+        marginRight: 10,
+      },
+      text: {
+        fontSize: 22,
+        fontWeight: "bold",
+        color: "#1A237E", 
+      },
 })

@@ -1,9 +1,12 @@
-import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native'
 import React from 'react'
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const OnlineConsultation = () => {
+    const navigation=useNavigation();
     return (
+        <ScrollView>
         <SafeAreaView style={styles.container}>
            
             <TextInput
@@ -37,10 +40,10 @@ const OnlineConsultation = () => {
 
 
                     <View style={styles.buttonRow}>
-                        <TouchableOpacity style={styles.viewProfileButton}>
+                        <TouchableOpacity style={styles.viewProfileButton} onPress={()=>navigation.navigate('DoctorDetails')}>
                             <Text style={styles.viewProfileText}>View profile</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.bookButton}>
+                        <TouchableOpacity style={styles.bookButton} onPress={()=>navigation.navigate('DoctorAppointment')}>
                             <Text style={styles.bookText}>Book Appointment</Text>
                         </TouchableOpacity>
                     </View>
@@ -51,15 +54,15 @@ const OnlineConsultation = () => {
                     <View style={styles.row}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/consultant/pngwing.png')}
+                            source={require('../assets/consultant/pngwing2.png')}
                         />
 
                         <View style={styles.info}>
-                            <Text style={styles.name}>Dr. Vijayakumar</Text>
+                            <Text style={styles.name}>Dr. Swetha</Text>
                             <Text style={styles.speciality}>General Physician</Text>
-                            <Text style={styles.experience}>11 years Exp</Text>
-                            <Text style={styles.fee}>Consultation Fee ₹300</Text>
-                            <Text style={styles.timing}>09.00 AM - 07.00 PM Today</Text>
+                            <Text style={styles.experience}>15 years Exp</Text>
+                            <Text style={styles.fee}>Consultation Fee ₹250</Text>
+                            <Text style={styles.timing}>10.00 AM - 06.00 PM Today</Text>
 
 
                             <View style={styles.ratingRow}>
@@ -80,20 +83,21 @@ const OnlineConsultation = () => {
                     </View>
                 </View>
             </View>
+          
             <View style={styles.profileList}>
                 <View style={styles.card}>
                     <View style={styles.row}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/consultant/pngwing.png')}
+                            source={require('../assets/consultant/pngwing3.png')}
                         />
 
                         <View style={styles.info}>
-                            <Text style={styles.name}>Dr. Vijayakumar</Text>
+                            <Text style={styles.name}>Dr. Hardin</Text>
                             <Text style={styles.speciality}>General Physician</Text>
-                            <Text style={styles.experience}>11 years Exp</Text>
-                            <Text style={styles.fee}>Consultation Fee ₹300</Text>
-                            <Text style={styles.timing}>09.00 AM - 07.00 PM Today</Text>
+                            <Text style={styles.experience}>5 years Exp</Text>
+                            <Text style={styles.fee}>Consultation Fee ₹250</Text>
+                            <Text style={styles.timing}>10.00 AM - 06.00 PM Today</Text>
 
 
                             <View style={styles.ratingRow}>
@@ -105,7 +109,7 @@ const OnlineConsultation = () => {
 
 
                     <View style={styles.buttonRow}>
-                        <TouchableOpacity style={styles.viewProfileButton}>
+                        <TouchableOpacity style={styles.viewProfileButton} on>
                             <Text style={styles.viewProfileText}>View profile</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.bookButton}>
@@ -119,15 +123,15 @@ const OnlineConsultation = () => {
                     <View style={styles.row}>
                         <Image
                             style={styles.image}
-                            source={require('../assets/consultant/pngwing.png')}
+                            source={require('../assets/consultant/pngwing4.png')}
                         />
 
                         <View style={styles.info}>
-                            <Text style={styles.name}>Dr. Vijayakumar</Text>
+                            <Text style={styles.name}>Dr. Tessa</Text>
                             <Text style={styles.speciality}>General Physician</Text>
-                            <Text style={styles.experience}>11 years Exp</Text>
-                            <Text style={styles.fee}>Consultation Fee ₹300</Text>
-                            <Text style={styles.timing}>09.00 AM - 07.00 PM Today</Text>
+                            <Text style={styles.experience}>5 years Exp</Text>
+                            <Text style={styles.fee}>Consultation Fee ₹250</Text>
+                            <Text style={styles.timing}>10.00 AM - 06.00 PM Today</Text>
 
 
                             <View style={styles.ratingRow}>
@@ -149,14 +153,14 @@ const OnlineConsultation = () => {
                 </View>
             </View>
         </SafeAreaView>
+        </ScrollView>
     )
 }
 
 export default OnlineConsultation
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    container:{
         backgroundColor: 'white',
         width: '100%',
         marginTop: 25,
@@ -167,12 +171,13 @@ const styles = StyleSheet.create({
     },
     input: {
         marginTop:35,
-        width:'85%',
+        width:'90%',
         borderColor:'#ddd',
         borderWidth:2,
         color: '#fff', 
         fontSize: 16,
-        borderRadius:5
+        borderRadius:50,
+        paddingLeft:10
     },
     profileList: {
         width: "90%",
